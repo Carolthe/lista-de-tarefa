@@ -12,8 +12,8 @@ export default function Lista (){
         setValorInput("")
     }
 
-    function clickApagar (){
-        setButtonAdicionar("")
+    function removerTarefa (tarefaParaRemover){
+        setListaTarefa(listaTarefa.filter(tarefa => tarefa !== tarefaParaRemover))
     }
     return(
         <div>
@@ -27,7 +27,7 @@ export default function Lista (){
             >Adicionar</button>
         {listaTarefa.map((tarefa) => (
            <p>{tarefa} <button
-            onClick={clickApagar}>X</button> </p>
+            onClick={()=> removerTarefa(tarefa)}>X</button> </p>
         ))}
             
         </div>
