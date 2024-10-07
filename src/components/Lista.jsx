@@ -8,6 +8,10 @@ export default function Lista (){
         setValorInput(ev.target.value)
     }
     function clickButton (){
+        if(valorInput.trim() === ""){
+            alert("O campo de tarefa não pode estar vazio.")
+            return
+        }
         setListaTarefa([...listaTarefa, valorInput])
         setValorInput("")
     }
