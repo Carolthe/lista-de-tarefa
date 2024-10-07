@@ -1,15 +1,15 @@
 import { useState } from "react"
 
 export default function Lista (){
-    const [inputTarefa, setInputTarefa] = useState([])
-    const [buttonAdicionar, setButtonAdicionar] = useState ("")
+    const [listaTarefa, setListaTarefa] = useState([])
+    const [valorInput, setValorInput] = useState ("")
 
     function changeInput (ev){
-        setInputTarefa(ev.target.value)
+        setValorInput(ev.target.value)
     }
     function clickButton (){
-        setButtonAdicionar([...inputTarefa, buttonAdicionar])
-        setInputTarefa("")
+        setListaTarefa([...listaTarefa, valorInput])
+        setValorInput("")
     }
 
     function clickApagar (){
@@ -20,15 +20,15 @@ export default function Lista (){
             <input
             placeholder="Escreva sua terefa.."
             onChange={changeInput}
-            value={inputTarefa} />
+            value={valorInput}
+            type="text" />
             <button
             onClick={clickButton}
             >Adicionar</button>
-            {buttonAdicionar &&
-           
-           <p>{buttonAdicionar} <button
+        {listaTarefa.map((tarefa) => (
+           <p>{tarefa} <button
             onClick={clickApagar}>X</button> </p>
-          }
+        ))}
             
         </div>
     )
