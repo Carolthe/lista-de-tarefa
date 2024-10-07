@@ -21,6 +21,7 @@ export default function Lista (){
     }
     return(
         <div>
+            <h1>Lista de Tarefas</h1>
             <input
             placeholder="Escreva sua terefa.."
             onChange={changeInput}
